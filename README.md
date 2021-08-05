@@ -59,7 +59,10 @@
 
     在终端执行以下语句安装依赖包
 
-    `pip install -r requirements.txt`
+    ```shell
+    pip install -r requirements.txt
+    ```
+    `requirements`默认安装torch-cpu，如需安装pytorch-gup请移步至[pytorch下载](https://pytorch.org/get-started/locally/)选择相应版本进行下载
 
 3. 下载权重文件
 
@@ -77,6 +80,7 @@
 
     在`my_detect.py`中修改`self.source = 'basketball.mp4'`
 
+ 5.运行test.py
 
 
 
