@@ -79,9 +79,8 @@
 4. 更改源文件
 
     在`my_detect.py`中修改`self.source = 'basketball.mp4'`
-
- 5.运行test.py
-
+    
+5. 运行test.py
 
 
 
