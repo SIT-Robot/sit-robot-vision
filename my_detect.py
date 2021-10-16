@@ -13,15 +13,16 @@ from yolov5.utils.torch_utils import select_device
 
 import sys
 
+
 # sys.path.insert(0, './yolov5')
 
 
 class _DetectOpt:
     def __init__(self):
         self.output = 'inference/output'
-        self.source = 'basketball.mp4'
+        self.source = 0
         # self.deep_sort_weights = 'deep_sort_pytorch/deep_sort/deep/checkpoint/ckpt.t7'
-        self.yolo_weights = 'yolov5/weights/basketball_robot.pt'
+        self.yolo_weights = 'yolov5/weights/yolov5s.pt'
         self.imgsz = 640
         self.evaluate = False
         self.device = '0'
@@ -65,7 +66,8 @@ class MyDetect:
         """
         返回xywhs,confs,cls_s 这些都是tensor
         """
-        global xywhs, confs, clss
+        xywhs = confs = clss = None
+
         processed_image = self._process_image(source)
         pred = self.model(processed_image, augment=False)[0]
         pred = non_max_suppression(
