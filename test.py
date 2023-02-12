@@ -7,7 +7,7 @@ from yolov5.utils.plots import plot_one_box
 if __name__ == '__main__':
     det = MyDetect()
     deepsort = MyDeepSort()
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(4)   #打开默认相机
     while True:
         _, image = cap.read()
         if image is None:
@@ -30,6 +30,6 @@ if __name__ == '__main__':
                     # print(conf.item())
                     label = f'{id}{det.names[c]}{conf:.2f}'
                     plot_one_box(bboxes, image, label=label, color=det.colors[c], line_thickness=2)
-        cv2.imshow("test", image)
-        if cv2.waitKey(1) == ord('q'):
+        cv2.imshow("test", image)   #显示图像
+        if cv2.waitKey(1) == ord('q'):  #
             break
